@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
-  'https://ntrokpxjplmhutmgpfqj.supabase.co',
-  'sb_publishable_kFu5KgKBYM_kkl0Ng460gA_mnmJ_USZ',
+  'https://ezauomwzunofjvnbdfoc.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6YXVvbXd6dW5vZmp2bmJkZm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk1NDQsImV4cCI6MjA5NDIzNTU0NH0.zDtKHLUvuJGql4nSy1LR5rGFQ9yFtjcnmaog6xxoio0',
   { auth: { autoRefreshToken: true, persistSession: true }, db: { schema: 'public' } }
 )
 
@@ -354,9 +354,9 @@ export default function App() {
                 <div style={{display:'flex',gap:'8px'}}>
                   <button style={{...S.btn('#2d5a3d'),flex:1}} onClick={async()=>{
                     const {data:{session}} = await supabase.auth.getSession()
-                    const res = await fetch(`https://ntrokpxjplmhutmgpfqj.supabase.co/functions/v1/create-user`,{
+                    const res = await fetch(`https://ezauomwzunofjvnbdfoc.supabase.co/functions/v1/create-user`,{
                       method:'POST',
-                      headers:{'Content-Type':'application/json','Authorization':`Bearer ${session.access_token}`,'apikey':'sb_publishable_kFu5KgKBYM_kkl0Ng460gA_mnmJ_USZ'},
+                      headers:{'Content-Type':'application/json','Authorization':`Bearer ${session.access_token}`,'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV6YXVvbXd6dW5vZmp2bmJkZm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTk1NDQsImV4cCI6MjA5NDIzNTU0NH0.zDtKHLUvuJGql4nSy1LR5rGFQ9yFtjcnmaog6xxoio0'},
                       body:JSON.stringify({full_name:newUser.name,email:newUser.email,password:newUser.pass,role:newUser.role})
                     })
                     const r = await res.json()
