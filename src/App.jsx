@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
   'https://ntrokpxjplmhutmgpfqj.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50cm9rcHhqcGxtaHV0bWdwZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg0MDIwMDgsImV4cCI6MjA5Mzk3ODAwOH0.eVGHwtFxQo61SkLFWb-n2CjLfZ-d9VNIY_5mjjP_bTc',
+  'sb_publishable_kFu5KgKBYM_kkl0Ng460gA_mnmJ_USZ',
   { auth: { autoRefreshToken: true, persistSession: true }, db: { schema: 'public' } }
 )
 
@@ -356,7 +356,7 @@ export default function App() {
                     const {data:{session}} = await supabase.auth.getSession()
                     const res = await fetch(`https://ntrokpxjplmhutmgpfqj.supabase.co/functions/v1/create-user`,{
                       method:'POST',
-                      headers:{'Content-Type':'application/json','Authorization':`Bearer ${session.access_token}`,'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50cm9rcHhqcGxtaHV0bWdwZnFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDYzODAwMDUsImV4cCI6MjA2MTk1NjAwNX0.r4L0qFKO5QC2xAAwOCwiZXhwIjoyMDYxOTU2MDA1fQ'},
+                      headers:{'Content-Type':'application/json','Authorization':`Bearer ${session.access_token}`,'apikey':'sb_publishable_kFu5KgKBYM_kkl0Ng460gA_mnmJ_USZ'},
                       body:JSON.stringify({full_name:newUser.name,email:newUser.email,password:newUser.pass,role:newUser.role})
                     })
                     const r = await res.json()
